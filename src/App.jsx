@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Activity,
   ArrowDownRight,
@@ -33,9 +33,11 @@ const tasks = [
   { name: "Prepare sprint retrospective", project: "Team operations", owner: "RM", due: "Nov 02", status: "In progress", tone: "progress" },
 ];
 
-function Sidebar() {
+function Sidebar({ menuOpen }) {
   return (
-    <aside className="sidebar">
+
+    <aside className={`sidebar ${menuOpen ? "mobile-open" : ""}`}>
+      
       <a className="brand" href="#" aria-label="FlowTrack home">
         <span className="brand-mark"><Activity size={19} strokeWidth={2.6} /></span>
         <span>Flow<span className="brand-accent">Track</span></span>
@@ -81,9 +83,19 @@ function Sidebar() {
   );
 }
 
-function Header() {
+function Header({ menuOpen, setMenuOpen }) {
   return (
     <header className="topbar">
+      <button
+        className="mobile-menu"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle navigation"
+        aria-expanded={menuOpen}
+        aria-controls="dashboard-sidebar"
+      >
+        ☰
+      </button>
+
       <div className="breadcrumb"><span>Workspace</span><span className="crumb-divider">/</span><strong>Overview</strong></div>
       <div className="topbar-actions">
         <label className="search-box">
@@ -146,11 +158,15 @@ function RecentTasks() {
 }
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="app-shell">
-      <Sidebar />
+      <div id="dashboard-sidebar">
+        <Sidebar menuOpen={menuOpen} />
+      </div>
       <div className="main-column">
-        <Header />
+        <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <main className="dashboard-content">
           <section className="page-heading">
             <div>
