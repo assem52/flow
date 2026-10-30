@@ -37,11 +37,12 @@ a {
   display: grid;
   grid-template-columns: 250px minmax(0, 1fr);
   min-height: 100vh;
+  min-width: 1080px;
 }
 
 .metric-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, 250px);
   gap: 15px;
 }
 
