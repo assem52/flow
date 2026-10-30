@@ -37,12 +37,12 @@ a {
   display: grid;
   grid-template-columns: 250px minmax(0, 1fr);
   min-height: 100vh;
-  min-width: 1080px;
+
 }
 
 .metric-grid {
   display: grid;
-  grid-template-columns: repeat(4, 250px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 15px;
 }
 
@@ -671,7 +671,9 @@ tbody tr:last-child td {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  
+  .sidebar {
+    display: none;
+  }
 
   .sidebar.mobile-open{
     display: flex;
