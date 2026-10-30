@@ -36,7 +36,7 @@ const tasks = [
 function Sidebar({ menuOpen }) {
   return (
 
-    <aside className={`sidebar ${menuOpen ? "mobile-open" : ""}`}>
+    <aside className={`sidebar ${menuOpen ? "" : ""}`}>
       
       <a className="brand" href="#" aria-label="FlowTrack home">
         <span className="brand-mark"><Activity size={19} strokeWidth={2.6} /></span>

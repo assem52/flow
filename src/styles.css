@@ -36,13 +36,12 @@ a {
 .app-shell {
   display: grid;
   grid-template-columns: 250px minmax(0, 1fr);
-  min-width: 1080px;
   min-height: 100vh;
 }
 
 .metric-grid {
   display: grid;
-  grid-template-columns: repeat(4, 250px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 15px;
 }
 
@@ -671,6 +670,19 @@ tbody tr:last-child td {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  
+
+  .sidebar.mobile-open{
+    display: flex;
+    position:fixed;
+    z-index: 999;
+    top: 60px;
+    left:0;
+    width:250px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    background: white;
+  }
   .topbar {
     height: auto;
     min-height: 60px;
